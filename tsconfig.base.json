@@ -16,6 +16,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "baseUrl": ".",
+    "paths": {
+      "@multivendor-eshop/common-utils": ["packages/common-utils/src/index.ts"],
+      "@multivendor-eshop/common-utils/*": ["packages/common-utils/src/*"]
+    }
   }
 }
