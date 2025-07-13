@@ -2,17 +2,28 @@
   "name": "@multivendor-eshop/common-utils",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": ["packages/common-utils/dist"],
+        "options": {
+          "outputPath": "packages/common-utils/dist",
+          "main": "packages/common-utils/src/index.ts",
+          "tsConfig": "packages/common-utils/tsconfig.lib.json"
+        }
+      }
     }
   },
   "dependencies": {
